@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="CurrencyConvertorWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Amount:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>        <TextBox Name="AmountTextBox" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,30,0,0"/>        <Label Content="From Currency:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,70,0,0"/>        <ComboBox Name="FromCurrencyComboBox" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,90,0,0"/>        <Label Content="To Currency:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,70,0,0"/>        <ComboBox Name="ToCurrencyComboBox" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,90,0,0"/>        <Button Name="btnConvert" Width="100" Height="30" Content="Convert" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="400,82,0,0" Click="btnConvert_Click" />        <TextBlock Name="txtResult" Width="280" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,95,30,0"/>
+        <Label Content="Amount:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+        <TextBox Name="AmountTextBox" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,30,0,0"/>
+
+        <Label Content="From Currency:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,70,0,0"/>
+        <ComboBox Name="FromCurrencyComboBox" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,90,0,0"/>
+
+        <Label Content="To Currency:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,70,0,0"/>
+        <ComboBox Name="ToCurrencyComboBox" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,90,0,0"/>
+
+        <Button Name="btnConvert" Width="100" Height="30" Content="Convert" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="400,82,0,0" Click="btnConvert_Click" />
+        <TextBlock Name="txtResult" Width="280" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,95,30,0"/>
     </Grid>
 </Window>

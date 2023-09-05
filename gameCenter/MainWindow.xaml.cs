@@ -1,6 +1,11 @@
-﻿using gameCenter.Projects.CurrencyConverter;
+﻿using gameCenter.Projects;
+using gameCenter.Projects.CurrencyConverter;
+using gameCenter.Projects.MemoryGame;
+using gameCenter.Projects.NumberGame;
 using gameCenter.Projects.Project1;
+using gameCenter.Projects.TicTacToe;
 using gameCenter.Projects.To_Do_List;
+using gameCenter.Projects.UserManagmentSystem;
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -29,8 +34,8 @@ namespace gameCenter
                 "Image2" => "To Do List Project",
                 "Image3" => "Currency Money Converter", 
                 "Image4" => "Memory Game",
-                "Image5" => "Calculator App",
-                "Image6" => "XO Game",
+                "Image5" => "The number Games",
+                "Image6" => "Tic Tac Toe",
                 _ => "please pick a game"
             };
         }
@@ -43,9 +48,9 @@ namespace gameCenter
 
         private void Image1_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
         {
-            Project1 project1 = new();
+            UserManagmentSystem userManagmentSystem = new();
             Hide();
-            project1.ShowDialog();
+            userManagmentSystem.ShowDialog();
             Show();
         }
         private void Image2_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
@@ -62,6 +67,28 @@ namespace gameCenter
             currencyConvertorView.ShowDialog();
             Show();
         }
+        private void Image4_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
+        {
+            NumberGame numberGame = new NumberGame();
+            Hide();
+            numberGame.ShowDialog();
+            Show();
+        }
+        private void Image5_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
+        {
+            TicTacToe ticTacToe = new TicTacToe();
+            Hide();
+            ticTacToe.ShowDialog();
+            Show();
+        }
+        private void Image6_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
+        {
+            MemoryGame memoryGame = new MemoryGame();
+            Hide();
+            memoryGame.ShowDialog();
+            Show();
+        }
+
 
 
     }

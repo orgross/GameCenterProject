@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Projects\CurrencyConverter\CurrencyConvertorView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\MemoryGame\MemoryGame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\NumberGame\Games\EasyDoubleGame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\NumberGame\Games\EasyPlusGame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\NumberGame\Games\HardDoubleGame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\NumberGame\Games\HardPlusGame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\NumberGame\NumberGame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\UserManagmentSystem\ProjectPresentation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\TicTacToe\TicTacToe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\ToDoList\ToDoList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Projects\CurrencyConverter\CurrencyConvertorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\MemoryGame\MemoryGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\NumberGame\Games\EasyDoubleGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\NumberGame\Games\EasyPlusGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\NumberGame\Games\HardDoubleGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\NumberGame\Games\HardPlusGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\NumberGame\NumberGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\UserManagmentSystem\ProjectPresentation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\TicTacToe\TicTacToe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\ToDoList\ToDoList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

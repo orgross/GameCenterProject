@@ -12,7 +12,7 @@ namespace gameCenter.Projects.CurrencyConverter.Services
     internal class CurrencyService
     {
         private const string BasedApiEndPoint = "http://api.exchangeratesapi.io/latest";
-        private const string ApiKey = "21cc5ca8e5b22d57300606309ae261d4";
+        private const string ApiKey = "5db472f0179622063c31213183b7eed6\r\n";
         private HttpClient Http_Client = new HttpClient();
 
         public async Task<Dictionary<string, double>> GetExchangeRatesAsync()

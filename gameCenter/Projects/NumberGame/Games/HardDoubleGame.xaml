@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="HardDoubleGame" Height="450" Width="800">
     <Grid>
-        <Label Content="hard Double"></Label>
+        <Label Content="level: Hard Double" FontSize="20"/>
+        <TextBlock x:Name="Equation" Text="{Binding Description}" Margin="71,106,557,274" FontSize="16"/>
+
+        <Label Content="enter your answer:" Margin="312,65,331,338" FontSize="16"/>
+        <TextBox x:Name="Answer" Text="" FontSize="16" Margin="312,101,312,274" />
+
+        <Button x:Name="CheckAnswer" Content="Check" FontSize="16" Margin="535,101,93,274" Click="CheckAnswer_Click" />
+
+        <TextBlock x:Name="Response" Margin="535,204,93,181" FontSize="20" Text="{Binding Response}"/>
     </Grid>
 </Window>

@@ -46,9 +46,9 @@
             <Image x:Name="Image1" Source="/Images/userManagment.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image1_MouseLeftButtonUp"/>
             <Image x:Name="Image2" Source="/Images/toDoList.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image2_MouseLeftButtonUp"/>
             <Image x:Name="Image3" Source="/Images/currencyNumber.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image3_MouseLeftButtonUp"/>
-            <Image x:Name="Image4" Source="/Images/memoryGame.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"/>
-            <Image x:Name="Image5" Source="/Images/calculator.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"/>
-            <Image x:Name="Image6" Source="/Images/XO.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave"/>
+            <Image x:Name="Image4" Source="/Images/memoryGame.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image6_MouseLeftButtonUp"/>
+            <Image x:Name="Image5" Source="/Images/calculator.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image4_MouseLeftButtonUp"/>
+            <Image x:Name="Image6" Source="/Images/XO.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image5_MouseLeftButtonUp"/>
         </WrapPanel>
         
 

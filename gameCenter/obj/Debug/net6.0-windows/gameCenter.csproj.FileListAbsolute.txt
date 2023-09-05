@@ -1,0 +1,94 @@
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.exe
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.deps.json
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.runtimeconfig.json
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.dll
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.pdb
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.csproj.AssemblyReference.cache
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\Project1\Project1.g.cs
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter_MarkupCompile.cache
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter_MarkupCompile.lref
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\Project1\Project1.baml
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.g.resources
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.AssemblyInfoInputs.cache
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.AssemblyInfo.cs
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.csproj.CoreCompileInputs.cache
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.dll
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\refint\gameCenter.dll
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.pdb
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.genruntimeconfig.cache
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\ref\gameCenter.dll
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\ToDoList\ToDoList.g.cs
+C:\Users\orgro\Source\Repos\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\ToDoList\ToDoList.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\Project1\Project1.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\ToDoList\ToDoList.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter_MarkupCompile.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter_MarkupCompile.lref
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.dll
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\refint\gameCenter.dll
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.pdb
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.exe
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.deps.json
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.runtimeconfig.json
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.dll
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\bin\Debug\net6.0-windows\gameCenter.pdb
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\Project1\Project1.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\ToDoList\ToDoList.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.g.resources
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.AssemblyInfoInputs.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.AssemblyInfo.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.csproj.CoreCompileInputs.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\gameCenter.genruntimeconfig.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\ref\gameCenter.dll
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\CurrencyConverter\CurrencyConvertorView.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\gameCenter_CSharp\gameCenter\obj\Debug\net6.0-windows\Projects\CurrencyConverter\CurrencyConvertorView.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\bin\Debug\net6.0-windows\gameCenter.exe
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\bin\Debug\net6.0-windows\gameCenter.deps.json
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\bin\Debug\net6.0-windows\gameCenter.runtimeconfig.json
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\bin\Debug\net6.0-windows\gameCenter.dll
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\bin\Debug\net6.0-windows\gameCenter.pdb
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\CurrencyConverter\CurrencyConvertorView.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\MemoryGame\MemoryGame.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\EasyDoubleGame.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\EasyPlusGame.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\HardDoubleGame.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\HardPlusGame.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\NumberGame.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\TicTacToe\TicTacToe.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\ToDoList\ToDoList.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\UserManagmentSystem\ProjectPresentation.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\UserManagmentSystem\UserManagmentSystem.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter_Content.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter_MarkupCompile.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter_MarkupCompile.lref
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\CurrencyConverter\CurrencyConvertorView.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\MemoryGame\MemoryGame.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\EasyDoubleGame.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\EasyPlusGame.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\HardDoubleGame.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\Games\HardPlusGame.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\NumberGame\NumberGame.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\TicTacToe\TicTacToe.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\ToDoList\ToDoList.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\UserManagmentSystem\ProjectPresentation.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\Projects\UserManagmentSystem\UserManagmentSystem.baml
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.g.resources
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.AssemblyInfoInputs.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.AssemblyInfo.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.csproj.CoreCompileInputs.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.dll
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\refint\gameCenter.dll
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.pdb
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\gameCenter.genruntimeconfig.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Debug\net6.0-windows\ref\gameCenter.dll

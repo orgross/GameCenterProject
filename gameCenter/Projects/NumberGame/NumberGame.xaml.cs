@@ -21,45 +21,17 @@ namespace gameCenter.Projects.NumberGame
     /// </summary>
     public partial class NumberGame : Window
     {
-        private string playerName;
-        private List<GoodResponse> goodResponses = new List<GoodResponse> { GoodResponse.Good, GoodResponse.Amazing, GoodResponse.Blessing };
-        private List<NotGoodResponse> notGoodResponses = new List<NotGoodResponse> { NotGoodResponse.TryAgain, NotGoodResponse.NotGood, NotGoodResponse.YouSuck };
-        private int selectedGame;
-        private int numPlays;
-
+        public string playerName;
+        
         public NumberGame()
         {
             InitializeComponent();
-        }
-        public NumberGame(string playerName, int selectedGame, int numPlays)
-        {
-            InitializeComponent();
-
-            this.playerName = playerName;
-            this.selectedGame = selectedGame;
-            this.numPlays = numPlays;
-
-            switch (selectedGame)
-            {
-                case 1:
-                    NumberGamePlusEasy(numPlays);
-                    break;
-                case 2:
-                    NumberGamePlusHard(numPlays);
-                    break;
-                case 3:
-                    NumberGameDoubleEasy(numPlays);
-                    break;
-                case 4:
-                    NumberGameDoubleHard(numPlays);
-                    break;
-            }
         }
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             playerName = nameTextBox.Text;
             int selectedGame = Convert.ToInt32(((ComboBoxItem)gameComboBox.SelectedItem).Tag);
-            int numPlays = Convert.ToInt32(playsTextBox.Text);
+            int numPlays = Convert.ToInt32(playsComboBox.Text);
 
             this.Hide();
 
@@ -75,7 +47,19 @@ namespace gameCenter.Projects.NumberGame
                     HardPlusGame hardPlus = new HardPlusGame();
                     hardPlus.ShowDialog();
                     break;
+                case 2:
+                    gameComboBox.Text = "Double Game (Easy)";
+                    EasyDoubleGame easyDouble = new EasyDoubleGame();
+                    easyDouble.ShowDialog();
+                    break;
+                case 3:
+                    gameComboBox.Text = "Double Game (Hard)";
+                    HardDoubleGame hardDouble = new HardDoubleGame();
+                    hardDouble.ShowDialog();
+                    break;
             }
+
+            this.Show();
 
         }
         private void NumberGamePlusEasy(int numPlays)
@@ -91,13 +75,13 @@ namespace gameCenter.Projects.NumberGame
                 {
                     if (userAnswer == num1 + num3)
                     {
-                        GoodResponse randomGoodResponse = goodResponses[new Random().Next(goodResponses.Count)];
-                        Console.WriteLine($"{randomGoodResponse}, {playerName}");
+                       // GoodResponse randomGoodResponse = goodResponses[new Random().Next(goodResponses.Count)];
+                        //Console.WriteLine($"{randomGoodResponse}, {playerName}");
                     }
                     else
                     {
-                        NotGoodResponse randomNotGoodResponse = notGoodResponses[new Random().Next(notGoodResponses.Count)];
-                        Console.WriteLine($"{randomNotGoodResponse}, {playerName}");
+                       // NotGoodResponse randomNotGoodResponse = notGoodResponses[new Random().Next(notGoodResponses.Count)];
+                       // Console.WriteLine($"{randomNotGoodResponse}, {playerName}");
                     }
                 }
                 else
@@ -110,20 +94,9 @@ namespace gameCenter.Projects.NumberGame
             Console.WriteLine("Thank you for playing this game. See you soon!");
         }
 
-    private void NumberGamePlusHard(int numPlays)
+        private void nameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Implement the game logic for Plus Game (Hard) here
-        }
 
-        private void NumberGameDoubleEasy(int numPlays)
-        {
-            // Implement the game logic for Double Game (Easy) here
         }
-
-        private void NumberGameDoubleHard(int numPlays)
-        {
-            // Implement the game logic for Double Game (Hard) here
-        }
-
     }
 }

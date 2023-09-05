@@ -12,14 +12,16 @@ namespace gameCenter.Projects.NumberGame.Models
         {
             Good,
             Amazing,
-            Blessing
+            Blessing,
+            Great
         }
 
         public enum NotGoodResponse
         {
             TryAgain,
             NotGood,
-            YouSuck
+            YouSuck,
+            ThinkAgain
         }
     }
 }

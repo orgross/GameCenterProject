@@ -1,0 +1,7 @@
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Release\net6.0-windows\MainWindow.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Release\net6.0-windows\Projects\CurrencyConverter\CurrencyConvertorView.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Release\net6.0-windows\Projects\ToDoList\ToDoList.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Release\net6.0-windows\Projects\UserManagmentSystem\UserManagmentSystem.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Release\net6.0-windows\App.g.cs
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Release\net6.0-windows\gameCenter_MarkupCompile.cache
+C:\Users\orgro\PycharmProjects\pythonProject1\HACKERU\HackerU course 2 2023-2024\C#\GameCenter\gameCenter\obj\Release\net6.0-windows\gameCenter_MarkupCompile.lref

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NumberGameApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,42 @@ namespace gameCenter.Projects.NumberGame.Games
     /// </summary>
     public partial class HardDoubleGame : Window
     {
+        private int num1, num2;
+        private ViewModel viewModel = new ViewModel();
         public HardDoubleGame()
         {
             InitializeComponent();
+            DataContext = viewModel;
+            GenerateEquation();
+        }
+
+        private void CheckAnswer_Click(object sender, RoutedEventArgs e)
+        {
+            int userAnswer;
+            if (int.TryParse(Answer.Text, out userAnswer))
+            {
+                if (userAnswer == num1 * num2)
+                {
+                    Response.Text = "Good";
+                }
+                else
+                {
+                    Response.Text = "Bad";
+                }
+            }
+            else
+            {
+                Console.WriteLine("enter only numbers");
+            }
+            GenerateEquation();
+
+        }
+
+        private void GenerateEquation()
+        {
+            num1 = new Random().Next(1, 15);
+            num2 = new Random().Next(1, 10);
+            viewModel.Description = $"{num1} * {num2} = ?";
         }
     }
 }

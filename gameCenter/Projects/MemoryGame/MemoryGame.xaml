@@ -1,0 +1,59 @@
+﻿<Window x:Class="gameCenter.Projects.MemoryGame.MemoryGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gameCenter.Projects.MemoryGame"
+        mc:Ignorable="d"
+        Title="MemoryGame" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Name="Card1" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="1" Name="Card2" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="2" Name="Card3" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="0" Grid.Column="3" Name="Card4" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="0" Name="Card5" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" Name="Card6" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="2" Name="Card7" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="3" Name="Card8" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0" Name="Card9" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" Name="Card10" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="2" Name="Card11" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="3" Name="Card12" Click="Card_Click">
+            <Image Source="/Projects/MemoryGame/Images/BackGroungCard.png"/>
+        </Button>
+    </Grid>
+</Window>
