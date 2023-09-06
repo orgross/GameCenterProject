@@ -21,6 +21,7 @@ namespace gameCenter.Projects.NumberGame
     /// </summary>
     public partial class NumberGame : Window
     {
+        public int numPlays1;
         public string playerName;
         
         public NumberGame()
@@ -41,6 +42,7 @@ namespace gameCenter.Projects.NumberGame
                     gameComboBox.Text = "Plus Game (Easy)";
                     EasyPlusGame easyPlus = new EasyPlusGame();
                     easyPlus.ShowDialog();
+                    this.Show();
                     break;
                 case 1:
                     gameComboBox.Text = "Plus Game (Hard)";

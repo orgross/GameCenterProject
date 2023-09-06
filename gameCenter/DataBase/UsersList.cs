@@ -15,12 +15,12 @@ namespace gameCenter.DataBase
 
         public UsersList()
         {
-            Users.Add(new User { Username = "Or", Password = "123", IsLoggedIn = false, Points = new List<int> { 0 } });
-            Users.Add(new User { Username = "Matan", Password = "123", IsLoggedIn = false, Points = new List<int> { 0 } });
-            Users.Add(new User { Username = "Gal", Password = "123", IsLoggedIn = false, Points = new List<int> { 0 } });
-            Users.Add(new User { Username = "Eilon", Password = "123", IsLoggedIn = false, Points = new List<int> { 0 } });
-            Users.Add(new User { Username = "Shiran", Password = "123", IsLoggedIn = false, Points = new List<int> { 0 } });
-            Users.Add(new User { Username = "[]", Password = "[]", IsLoggedIn = false, Points = new List<int> { 0 } });
+            Users.Add(new User { Username = "Or", Password = "123", IsLoggedIn = false, Points =  0 });
+            Users.Add(new User { Username = "Matan", Password = "123", IsLoggedIn = false, Points = 0 });
+            Users.Add(new User { Username = "Gal", Password = "123", IsLoggedIn = false, Points = 0 });
+            Users.Add(new User { Username = "Eilon", Password = "123", IsLoggedIn = false, Points = 0 });
+            Users.Add(new User { Username = "Shiran", Password = "123", IsLoggedIn = false, Points = 0 });
+            Users.Add(new User { Username = "[]", Password = "[]", IsLoggedIn = false, Points = 0 });
         }
 
         public User LogIn(string usernameInput, string passwordInput, TextBlock outputTextBlock)
@@ -80,12 +80,13 @@ namespace gameCenter.DataBase
                 Username = username,
                 Password = password,
                 IsLoggedIn = true,
-                Points = new List<int> { 0 }
+                Points = 0 
             };
             Users.Add(newUser);
-            MessageBox.Show("Welcome, " + newUser.Username + " (new user)");
+            MessageBox.Show("Welcome, " + newUser.Username );
             return newUser;
         }
+
     }
 
 }

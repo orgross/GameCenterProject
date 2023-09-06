@@ -1,4 +1,5 @@
-﻿using gameCenter.Projects;
+﻿using gameCenter.DataBase;
+using gameCenter.Projects;
 using gameCenter.Projects.CurrencyConverter;
 using gameCenter.Projects.MemoryGame;
 using gameCenter.Projects.NumberGame;
@@ -19,9 +20,12 @@ namespace gameCenter
     /// </summary>
     public partial class MainWindow : Window
     {
+        private UsersList userList;
+        private User loggedInUser;
         public MainWindow()
         {
             InitializeComponent();
+            userList = new UsersList();
         }
 
         private void Image_MouseEnter(object sender, MouseEventArgs e)
@@ -38,6 +42,40 @@ namespace gameCenter
                 "Image6" => "Tic Tac Toe",
                 _ => "please pick a game"
             };
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            string usernameInput = UsernameTextBox.Text;
+            string passwordInput = PasswordTextBox.Password;
+
+            loggedInUser = userList.LogIn(usernameInput, passwordInput, OutputTextBlock);
+
+            if (loggedInUser != null)
+            {
+                Login.Visibility = Visibility.Collapsed;
+                UserDataPanel.Visibility = Visibility.Visible;
+
+                UsernameDisplay.Text = "Username: " + loggedInUser.Username;
+                PointsDisplay.Text = "Points: " + string.Join(", ", loggedInUser.Points);
+            }
+        }
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            loggedInUser = null;
+
+            Login.Visibility = Visibility.Visible;
+            UserDataPanel.Visibility = Visibility.Collapsed;
+
+            UsernameDisplay.Text = "Username:";
+            PointsDisplay.Text = "Points:";
+        }
+        public void UpdatePoints(int pointsDelta)
+        {
+            if (loggedInUser != null)
+            {
+                loggedInUser.Points += pointsDelta;
+                PointsDisplay.Text = "Points: " + loggedInUser.Points;
+            }
         }
 
         private void Image_MouseLeave(object sender, MouseEventArgs e)

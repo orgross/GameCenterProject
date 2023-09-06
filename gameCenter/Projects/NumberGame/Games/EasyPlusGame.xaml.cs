@@ -21,6 +21,8 @@ namespace gameCenter.Projects.NumberGame.Games
     /// </summary>
     public partial class EasyPlusGame : Window
     {
+        private MainWindow userPoints;
+        private NumberGame number;
         private int num1,num2;
         private ViewModel viewModel = new ViewModel();
         private List<GoodResponse> goodResponses = new List<GoodResponse> { GoodResponse.Good, GoodResponse.Amazing, GoodResponse.Blessing,GoodResponse.Great };
@@ -36,26 +38,33 @@ namespace gameCenter.Projects.NumberGame.Games
 
         private void CheckAnswer_Click(object sender, RoutedEventArgs e)
         {
+            int numOfPlays = (int)number.numPlays1;
             GoodResponse randomGoodResponse = goodResponses[new Random().Next(goodResponses.Count)];
             NotGoodResponse randomNotGoodResponse= notGoodResponses[new Random().Next(notGoodResponses.Count)];
             int userAnswer;
-            if (int.TryParse(Answer.Text, out userAnswer))
+            for(int i = 0; i < numOfPlays; i++)
             {
-                if (userAnswer == num1 + num2)
+                if (int.TryParse(Answer.Text, out userAnswer))
                 {
-                    Response.Text = $"{randomGoodResponse}";
+                    if (userAnswer == num1 + num2)
+                    {
+                        Response.Text = $"{randomGoodResponse}";
+                        userPoints.UpdatePoints(10);
+                    }
+                    else
+                    {
+                        Response.Text = $"{randomNotGoodResponse}";
+                        userPoints.UpdatePoints(-5);
+                    }
                 }
                 else
                 {
-                    Response.Text = $"{randomNotGoodResponse}";
+                    Console.WriteLine("enter only numbers");
                 }
+                GenerateEquation();
             }
-            else
-            {
-                Console.WriteLine("enter only numbers");
-            }
-            GenerateEquation();
-                
+            MessageBox.Show("You finish the game with" + userPoints);
+            StartOverButton.Visibility = Visibility.Visible;
         }
 
         private void GenerateEquation()
@@ -63,6 +72,17 @@ namespace gameCenter.Projects.NumberGame.Games
             num1 = new Random().Next(1, 10);
             num2 = new Random().Next(1, 5);
             viewModel.Description = $"{num1} + {num2} = ?";
+        }
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"You finish the game with {userPoints} points");
+            this.Close();
+        }
+        private void StartOverButton_Click(object sender, RoutedEventArgs e)
+        {
+            GenerateEquation();
+            StartOverButton.Visibility = Visibility.Collapsed;
+            StopButton.Visibility = Visibility.Visible;
         }
     }
 }

@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1400">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Background1.png" Stretch="Fill"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -26,7 +29,6 @@
                VerticalContentAlignment="Center"
                Content="Game Center" 
                HorizontalContentAlignment="Center" 
-               Background="AliceBlue"
                FontWeight="Bold"
                FontSize="80"
         />
@@ -38,9 +40,22 @@
             Grid.Column="1" 
             VerticalAlignment="Center" 
             HorizontalAlignment="Center"
+            Background="Transparent"
             FontSize="35"
             FontWeight="DemiBold"
         />
+        <WrapPanel x:Name="Login" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="236" Width="311" Margin="39,10,0,0" Grid.RowSpan="3">
+            <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200"/>
+            <PasswordBox x:Name="PasswordTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200"/>
+            <TextBlock x:Name="OutputTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+            <Button Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Login_Click"/>
+        </WrapPanel>
+        
+        <StackPanel x:Name="UserDataPanel" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="39,10,0,0" Grid.RowSpan="3" Visibility="Collapsed">
+            <TextBlock x:Name="UsernameDisplay" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Username:"/>
+            <TextBlock x:Name="PointsDisplay" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Points:"/>
+            <Button Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Logout_Click"/>
+        </StackPanel>
 
         <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image x:Name="Image1" Source="/Images/userManagment.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image1_MouseLeftButtonUp"/>
@@ -50,7 +65,7 @@
             <Image x:Name="Image5" Source="/Images/calculator.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image4_MouseLeftButtonUp"/>
             <Image x:Name="Image6" Source="/Images/XO.png" Width="150" Margin="30" MouseEnter="Image_MouseEnter" MouseLeave="Image_MouseLeave" MouseLeftButtonUp="Image5_MouseLeftButtonUp"/>
         </WrapPanel>
-        
+
 
 
         <Label x:Name="Footer"
@@ -59,7 +74,7 @@
                Grid.ColumnSpan="3"
                VerticalContentAlignment="Center"
                HorizontalContentAlignment="Right"
-               Background="AliceBlue"
+               Background="Transparent"
                FontWeight="Bold"
                FontSize="23"
         />

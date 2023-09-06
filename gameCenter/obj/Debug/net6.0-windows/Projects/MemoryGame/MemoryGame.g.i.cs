@@ -149,7 +149,7 @@ namespace gameCenter.Projects.MemoryGame {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/gameCenter;V1.0.0.0;component/projects/memorygame/memorygame.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/gameCenter;component/projects/memorygame/memorygame.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Projects\MemoryGame\MemoryGame.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

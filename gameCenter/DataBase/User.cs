@@ -11,7 +11,7 @@ namespace gameCenter.DataBase
         public string Username { get; set; }
         public string Password { get; set; }
         public bool IsLoggedIn { get; set; }
-        public List<int> Points { get; set; }
+        public int Points { get; set; }
 
 
     }

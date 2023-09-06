@@ -16,5 +16,9 @@
         <Button x:Name="CheckAnswer" Content="Check" FontSize="16" Margin="535,101,93,274" Click="CheckAnswer_Click" />
 
         <TextBlock x:Name="Response" Margin="535,204,93,181" FontSize="20" Text="{Binding Response}"/>
+
+        <Button x:Name="StopButton" Content="Stop" FontSize="16" Margin="20,362,612,20" Click="StopButton_Click" />
+
+        <Button x:Name="StartOverButton" Content="Start Over" FontSize="16" Margin="20,380,20,20" Click="StartOverButton_Click" Visibility="Collapsed" />
     </Grid>
 </Window>

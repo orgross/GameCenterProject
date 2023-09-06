@@ -53,8 +53,8 @@ namespace gameCenter.Projects.NumberGame.Games
 
         private void GenerateEquation()
         {
-            num1 = new Random().Next(1, 15);
-            num2 = new Random().Next(1, 10);
+            num1 = new Random().Next(10, 15);
+            num2 = new Random().Next(10, 20);
             viewModel.Description = $"{num1} * {num2} = ?";
         }
     }
