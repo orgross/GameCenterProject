@@ -15,7 +15,7 @@ namespace gameCenter.DataBase
 
         public UsersList()
         {
-            Users.Add(new User { Username = "Or", Password = "123", IsLoggedIn = false, Points =  0 });
+            Users.Add(new User { Username = "Or", Password = "123", IsLoggedIn = false, Points =  1 });
             Users.Add(new User { Username = "Matan", Password = "123", IsLoggedIn = false, Points = 0 });
             Users.Add(new User { Username = "Gal", Password = "123", IsLoggedIn = false, Points = 0 });
             Users.Add(new User { Username = "Eilon", Password = "123", IsLoggedIn = false, Points = 0 });
@@ -72,7 +72,10 @@ namespace gameCenter.DataBase
                 }
             }
         }
-
+        public User GetUserByUsername(string username)
+        {
+            return Users.FirstOrDefault(user => user.Username == username);
+        }
         public User NewUser(string username, string password)
         {
             User newUser = new User
@@ -80,7 +83,7 @@ namespace gameCenter.DataBase
                 Username = username,
                 Password = password,
                 IsLoggedIn = true,
-                Points = 0 
+                Points = 1
             };
             Users.Add(newUser);
             MessageBox.Show("Welcome, " + newUser.Username );

@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace gameCenter
 {
@@ -22,12 +23,21 @@ namespace gameCenter
     {
         private UsersList userList;
         private User loggedInUser;
+        private DispatcherTimer timer;
+
         public MainWindow()
         {
             InitializeComponent();
             userList = new UsersList();
-        }
+            loggedInUser = null;
 
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1); // Update every second
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            UpdateDateTimeText();
+        }
         private void Image_MouseEnter(object sender, MouseEventArgs e)
         {
             Image image = (sender as Image)!;
@@ -36,11 +46,11 @@ namespace gameCenter
             {
                 "Image1" => "A User Management System",
                 "Image2" => "To Do List Project",
-                "Image3" => "Currency Money Converter", 
+                "Image3" => "Currency Money Converter",
                 "Image4" => "Memory Game",
                 "Image5" => "The number Games",
                 "Image6" => "Tic Tac Toe",
-                _ => "please pick a game"
+                _ => "Please log in before selecting a game"
             };
         }
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -49,6 +59,7 @@ namespace gameCenter
             string passwordInput = PasswordTextBox.Password;
 
             loggedInUser = userList.LogIn(usernameInput, passwordInput, OutputTextBlock);
+
 
             if (loggedInUser != null)
             {
@@ -71,11 +82,23 @@ namespace gameCenter
         }
         public void UpdatePoints(int pointsDelta)
         {
-            if (loggedInUser != null)
+            try
             {
-                loggedInUser.Points += pointsDelta;
-                PointsDisplay.Text = "Points: " + loggedInUser.Points;
+                if (loggedInUser != null)
+                {
+                    loggedInUser.Points += pointsDelta;
+                    PointsDisplay.Text = "Points: " + loggedInUser.Points;
+                }
+                else
+                {
+                    MessageBox.Show("You need to login before collecting points");
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+
         }
 
         private void Image_MouseLeave(object sender, MouseEventArgs e)
@@ -126,8 +149,13 @@ namespace gameCenter
             memoryGame.ShowDialog();
             Show();
         }
-
-
-
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            UpdateDateTimeText();
+        }
+        private void UpdateDateTimeText()
+        {
+            DateTimeTextBlock.Text = DateTime.Now.ToString("dd-MM-yyyy\n     HH:mm:ss");
+        }
     }
 }
