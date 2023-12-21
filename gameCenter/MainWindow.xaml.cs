@@ -2,11 +2,11 @@
 using gameCenter.Projects;
 using gameCenter.Projects.CurrencyConverter;
 using gameCenter.Projects.MemoryGame;
-using gameCenter.Projects.NumberGame;
 using gameCenter.Projects.Project1;
 using gameCenter.Projects.TicTacToe;
 using gameCenter.Projects.To_Do_List;
 using gameCenter.Projects.UserManagmentSystem;
+using MathGame;
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -130,9 +130,9 @@ namespace gameCenter
         }
         private void Image4_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
         {
-            NumberGame numberGame = new NumberGame();
+            GameSettingsWindow settingsWindow = new GameSettingsWindow();
             Hide();
-            numberGame.ShowDialog();
+            settingsWindow.ShowDialog();
             Show();
         }
         private void Image5_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
@@ -142,12 +142,12 @@ namespace gameCenter
             ticTacToe.ShowDialog();
             Show();
         }
-        private void Image6_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
+       private void Image6_MouseLeftButtonUp(Object sender, MouseButtonEventArgs e)
         {
-            MemoryGame memoryGame = new MemoryGame();
-            Hide();
-            memoryGame.ShowDialog();
-            Show();
+           MemoryGame memoryGame = new MemoryGame();
+           Hide();
+           memoryGame.ShowDialog();
+           Show();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {

@@ -8,10 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("projects/memorygame/images/cat.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("projects/memorygame/images/dog.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("projects/memorygame/images/elephent.png.jpeg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("projects/memorygame/images/jiraf.png.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("projects/memorygame/images/penguin.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("projects/memorygame/imagesmemory/tiger.png")]
 
 

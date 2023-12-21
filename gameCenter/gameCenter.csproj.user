@@ -7,22 +7,13 @@
     <Compile Update="Projects\CurrencyConverter\CurrencyConvertorView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Projects\MathGame\GameSettings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Projects\MathGame\Mathgame.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Projects\MemoryGame\MemoryGame.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Projects\NumberGame\Games\EasyDoubleGame.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Projects\NumberGame\Games\EasyPlusGame.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Projects\NumberGame\Games\HardDoubleGame.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Projects\NumberGame\Games\HardPlusGame.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Projects\NumberGame\NumberGame.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Projects\UserManagmentSystem\ProjectPresentation.xaml.cs">
@@ -39,22 +30,13 @@
     <Page Update="Projects\CurrencyConverter\CurrencyConvertorView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Projects\MathGame\GameSettings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Projects\MathGame\Mathgame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Projects\MemoryGame\MemoryGame.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Projects\NumberGame\Games\EasyDoubleGame.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Projects\NumberGame\Games\EasyPlusGame.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Projects\NumberGame\Games\HardDoubleGame.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Projects\NumberGame\Games\HardPlusGame.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Projects\NumberGame\NumberGame.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Projects\UserManagmentSystem\ProjectPresentation.xaml">

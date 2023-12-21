@@ -1,0 +1,31 @@
+﻿<Window x:Class="MathGame.GameSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Game Settings" Height="250" Width="350">
+    <Grid Background="#F0F0F0">
+
+        <StackPanel Margin="20">
+
+            <!-- Select Difficulty Section -->
+            <StackPanel Margin="0,0,0,20">
+                <Label Content="Select Difficulty:" FontSize="16" FontWeight="Bold"/>
+                <ComboBox x:Name="difficultyComboBox" Width="150" Height="30">
+                    <ComboBoxItem Content="Easy"/>
+                    <ComboBoxItem Content="Medium"/>
+                    <ComboBoxItem Content="Hard"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Enter Score Goal Section -->
+            <StackPanel Margin="0,0,0,20">
+                <Label Content="Enter Score Goal:" FontSize="16" FontWeight="Bold"/>
+                <TextBox x:Name="scoreGoalTextBox" Width="150" Height="30"/>
+            </StackPanel>
+
+            <!-- Start Game Button -->
+            <Button Content="Start Game" Width="120" Height="30" Click="StartGameButtonClick" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

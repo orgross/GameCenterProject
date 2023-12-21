@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Images\Background.png" />
     <None Remove="Images\Background1.png" />
+    <None Remove="Images\BackGroungCard.png" />
     <None Remove="Images\calculator.png" />
     <None Remove="Images\currencyNumber.png" />
     <None Remove="Images\memoryGame.png" />
@@ -18,13 +19,20 @@
     <None Remove="Images\toDoList.png" />
     <None Remove="Images\userManagment.png" />
     <None Remove="Images\XO.png" />
-    <None Remove="Projects\MemoryGame\Images\BackGroungCard.png" />
-    <None Remove="Projects\MemoryGame\Images\cat.png" />
-    <None Remove="Projects\MemoryGame\Images\dog.png" />
-    <None Remove="Projects\MemoryGame\Images\Elephent.png.jpeg" />
-    <None Remove="Projects\MemoryGame\Images\Jiraf.png.jpg" />
-    <None Remove="Projects\MemoryGame\Images\Penguin.png" />
-    <None Remove="Projects\MemoryGame\Images\Tiger.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Projects\MemoryGame\ImagesMemory\BackGroundCard.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Projects\MemoryGame\ImagesMemory\cat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Projects\MemoryGame\ImagesMemory\dog.png" />
+    <Resource Include="Projects\MemoryGame\ImagesMemory\Elephent.png" />
+    <Resource Include="Projects\MemoryGame\ImagesMemory\Jiraf.png" />
+    <Resource Include="Projects\MemoryGame\ImagesMemory\Penguin.png" />
+    <Resource Include="Projects\MemoryGame\ImagesMemory\Tiger.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,18 +46,6 @@
     <Resource Include="Images\toDoList.png" />
     <Resource Include="Images\userManagment.png" />
     <Resource Include="Images\XO.png" />
-    <Resource Include="Projects\MemoryGame\Images\BackGroungCard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Projects\MemoryGame\Images\Tiger.jpg" />
-    <Content Include="Projects\MemoryGame\Images\cat.png" />
-    <Content Include="Projects\MemoryGame\Images\dog.png" />
-    <Content Include="Projects\MemoryGame\Images\Elephent.png.jpeg" />
-    <Content Include="Projects\MemoryGame\Images\Jiraf.png.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Projects\MemoryGame\Images\Penguin.png" />
   </ItemGroup>
 
 </Project>
