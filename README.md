@@ -26,4 +26,4 @@ Create user profiles, manage accounts, and personalize the gaming experience wit
 
 1. Clone the repository to your local machine.
    ```bash
-   git clone https://github.com/yourusername/game-center-project.git
+   git clone https://github.com/orgross/GameCenterProject.git
