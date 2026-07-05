@@ -1,12 +1,18 @@
-import { apiPostJson } from "./client";
+import { apiGet, apiPostJson } from "./client";
 
-export type Difficulty = "easy" | "medium" | "hard";
 export type HangmanStatus = "in_progress" | "won" | "lost";
+export const RANDOM_CATEGORY = "random";
+
+export interface CategoryOut {
+  key: string;
+  label: string;
+}
 
 export interface NewGameOut {
   game_id: string;
   word_length: number;
   category: string;
+  category_key: string;
   max_wrong: number;
 }
 
@@ -19,8 +25,12 @@ export interface GuessOut {
   word: string | null;
 }
 
-export function newHangmanGame(difficulty: Difficulty): Promise<NewGameOut> {
-  return apiPostJson<NewGameOut>(`/games/hangman/new?difficulty=${difficulty}`, {});
+export function fetchHangmanCategories(): Promise<CategoryOut[]> {
+  return apiGet<CategoryOut[]>("/games/hangman/categories");
+}
+
+export function newHangmanGame(category: string, language: "en" | "he" = "en"): Promise<NewGameOut> {
+  return apiPostJson<NewGameOut>(`/games/hangman/new?category=${category}&language=${language}`, {});
 }
 
 export function guessHangman(gameId: string, letter: string): Promise<GuessOut> {

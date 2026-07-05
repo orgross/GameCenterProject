@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchProblem, submitAnswer, type Difficulty, type ProblemOut } from "../../api/mathGame";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
 type Stage = "settings" | "playing" | "finished";
 type Feedback = { kind: "correct" | "wrong"; message: string } | null;
@@ -9,6 +10,7 @@ type Feedback = { kind: "correct" | "wrong"; message: string } | null;
 const STREAK_BONUS_STEP = 2;
 
 export function MathGame() {
+  const { t } = useLanguage();
   const [stage, setStage] = useState<Stage>("settings");
   const [difficulty, setDifficulty] = useState<Difficulty>("easy");
   const [goal, setGoal] = useState(100);
@@ -55,7 +57,7 @@ export function MathGame() {
     if (!problem || answer.trim() === "") return;
     const parsed = Number(answer);
     if (Number.isNaN(parsed)) {
-      setFeedback({ kind: "wrong", message: "Enter a valid number." });
+      setFeedback({ kind: "wrong", message: t("math.invalidNumber") });
       return;
     }
 
@@ -67,7 +69,7 @@ export function MathGame() {
       const nextScore = score + 10 + bonus;
       setStreak(nextStreak);
       setScore(nextScore);
-      setFeedback({ kind: "correct", message: `Correct! +${10 + bonus} (streak ${nextStreak})` });
+      setFeedback({ kind: "correct", message: t("math.correct", { amount: 10 + bonus, streak: nextStreak }) });
 
       if (nextScore >= goal) {
         await finishGame(nextScore);
@@ -77,7 +79,7 @@ export function MathGame() {
       const nextScore = Math.max(0, score - 5);
       setStreak(0);
       setScore(nextScore);
-      setFeedback({ kind: "wrong", message: `Wrong — the answer was ${result.correct_answer}.` });
+      setFeedback({ kind: "wrong", message: t("math.wrong", { answer: result.correct_answer }) });
     }
 
     await loadProblem();
@@ -87,20 +89,20 @@ export function MathGame() {
     return (
       <div className="flex justify-center items-center px-4 py-20">
         <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-8">
-          <h1 className="text-2xl font-bold mb-6 text-center">🧮 Math Game</h1>
+          <h1 className="text-2xl font-bold mb-6 text-center">{t("math.title")}</h1>
 
-          <label className="block text-sm mb-1 text-white/70">Difficulty</label>
+          <label className="block text-sm mb-1 text-white/70">{t("math.difficulty")}</label>
           <select
             className="w-full mb-4 rounded-md bg-black/30 border border-white/10 px-3 py-2"
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value as Difficulty)}
           >
-            <option value="easy">Easy (addition)</option>
-            <option value="medium">Medium (multiplication)</option>
-            <option value="hard">Hard (mixed)</option>
+            <option value="easy">{t("math.easy")}</option>
+            <option value="medium">{t("math.medium")}</option>
+            <option value="hard">{t("math.hard")}</option>
           </select>
 
-          <label className="block text-sm mb-1 text-white/70">Score goal</label>
+          <label className="block text-sm mb-1 text-white/70">{t("math.scoreGoal")}</label>
           <input
             type="number"
             min={10}
@@ -114,10 +116,10 @@ export function MathGame() {
             onClick={startGame}
             className="w-full rounded-md bg-violet-600 py-2 font-medium hover:bg-violet-500 transition-colors"
           >
-            Start
+            {t("common.start")}
           </button>
           <Link to="/" className="block text-center text-sm text-white/50 mt-4 hover:text-white/80">
-            ← Back to games
+            {t("common.backToGames")}
           </Link>
         </div>
       </div>
@@ -128,23 +130,23 @@ export function MathGame() {
     return (
       <div className="flex justify-center items-center px-4 py-20">
         <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
-          <h1 className="text-2xl font-bold mb-2">🎉 Goal reached!</h1>
-          <p className="text-white/70 mb-6">Final score: {score}</p>
+          <h1 className="text-2xl font-bold mb-2">{t("math.goalReached")}</h1>
+          <p className="text-white/70 mb-6">{t("common.finalScore", { score })}</p>
           {bestScore !== null && (
-            <p className="text-violet-300 mb-6">Your best on this game: {bestScore}</p>
+            <p className="text-violet-300 mb-6">{t("common.yourBestOnThisGame", { score: bestScore })}</p>
           )}
           <div className="flex gap-3">
             <button
               onClick={() => setStage("settings")}
               className="flex-1 rounded-md bg-violet-600 py-2 font-medium hover:bg-violet-500 transition-colors"
             >
-              Play again
+              {t("common.playAgain")}
             </button>
             <Link
               to="/scores"
               className="flex-1 rounded-md bg-white/10 py-2 font-medium hover:bg-white/20 transition-colors text-center"
             >
-              View scores
+              {t("common.viewScores")}
             </Link>
           </div>
         </div>
@@ -158,8 +160,8 @@ export function MathGame() {
     <div className="flex justify-center items-center px-4 py-16">
       <div className="w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-8">
         <div className="flex justify-between text-sm text-white/60 mb-2">
-          <span>Score: {score}</span>
-          <span>Goal: {goal}</span>
+          <span>{t("math.scoreLabel", { score })}</span>
+          <span>{t("math.goalLabel", { goal })}</span>
         </div>
         <div className="w-full h-2 rounded-full bg-white/10 mb-8 overflow-hidden">
           <div
@@ -168,7 +170,7 @@ export function MathGame() {
           />
         </div>
 
-        <p className="text-center text-white/60 mb-2">What's the result?</p>
+        <p className="text-center text-white/60 mb-2">{t("math.whatsResult")}</p>
         <p className="text-center text-3xl font-bold mb-8">{problem?.expression}</p>
 
         <input
@@ -184,7 +186,7 @@ export function MathGame() {
           onClick={handleSubmit}
           className="w-full rounded-md bg-violet-600 py-2 font-medium hover:bg-violet-500 transition-colors"
         >
-          Submit
+          {t("math.submit")}
         </button>
 
         {feedback && (
@@ -197,9 +199,7 @@ export function MathGame() {
           </p>
         )}
 
-        {streak > 1 && (
-          <p className="mt-2 text-center text-sm text-amber-300">🔥 Streak: {streak}</p>
-        )}
+        {streak > 1 && <p className="mt-2 text-center text-sm text-amber-300">{t("math.streak", { streak })}</p>}
       </div>
     </div>
   );

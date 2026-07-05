@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
 const EMOJIS = ["🐱", "🐶", "🐯", "🦒", "🐧", "🐘"];
 
@@ -25,6 +26,7 @@ function computeScore(moves: number, seconds: number): number {
 }
 
 export function MemoryGame() {
+  const { t } = useLanguage();
   const [cards, setCards] = useState<Card[]>(() => buildDeck());
   const [flippedIds, setFlippedIds] = useState<number[]>([]);
   const [busy, setBusy] = useState(false);
@@ -107,11 +109,11 @@ export function MemoryGame() {
 
   return (
     <div className="flex flex-col items-center px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">🧠 Memory Game</h1>
+      <h1 className="text-3xl font-bold mb-2">{t("memory.title")}</h1>
       <div className="flex gap-6 text-white/70 mb-8 text-sm">
-        <span>Moves: {moves}</span>
-        <span>Time: {seconds}s</span>
-        <span>Score: {computeScore(moves, seconds)}</span>
+        <span>{t("memory.moves", { moves })}</span>
+        <span>{t("memory.time", { seconds })}</span>
+        <span>{t("memory.score", { score: computeScore(moves, seconds) })}</span>
       </div>
 
       <div className="grid grid-cols-4 gap-3 mb-8">
@@ -147,18 +149,18 @@ export function MemoryGame() {
           onClick={restart}
           className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
         >
-          Restart
+          {t("common.restart")}
         </button>
         <Link to="/" className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors">
-          ← Back
+          {t("common.back")}
         </Link>
       </div>
 
       {finished && (
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-sm">
-          <h2 className="text-xl font-bold mb-2">🎉 Solved in {moves} moves!</h2>
-          <p className="text-white/70 mb-1">Final score: {finalScore}</p>
-          {bestScore !== null && <p className="text-violet-300">Your best on this game: {bestScore}</p>}
+          <h2 className="text-xl font-bold mb-2">{t("memory.solved", { moves })}</h2>
+          <p className="text-white/70 mb-1">{t("common.finalScore", { score: finalScore })}</p>
+          {bestScore !== null && <p className="text-violet-300">{t("common.yourBestOnThisGame", { score: bestScore })}</p>}
         </div>
       )}
     </div>

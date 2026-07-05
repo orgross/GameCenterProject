@@ -11,7 +11,11 @@ app = FastAPI(title="Game Center API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",  # vite dev server
+        "http://localhost:4173",  # `vite preview` (production build testing)
+        "https://game-center-official.netlify.app",  # deployed frontend
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

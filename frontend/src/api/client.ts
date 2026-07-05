@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:8000";
+// Set VITE_API_BASE_URL (e.g. in Netlify's environment variables) to point at
+// your deployed backend. Falls back to localhost for local development.
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
 
 export class ApiError extends Error {
   status: number;

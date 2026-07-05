@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { guessWordle, newWordleGame, type LetterResult, type LetterStatus } from "../../api/wordle";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
 const MAX_ATTEMPTS = 6;
 const WORD_LENGTH = 5;
@@ -16,6 +17,7 @@ const STATUS_CLASSES: Record<LetterStatus, string> = {
 };
 
 export function Wordle() {
+  const { t } = useLanguage();
   const [gameId, setGameId] = useState<string | null>(null);
   const [guesses, setGuesses] = useState<LetterResult[][]>([]);
   const [current, setCurrent] = useState("");
@@ -61,7 +63,7 @@ export function Wordle() {
         setBestScore(result.best_score);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "That doesn't look like a valid guess.");
+      setError(err instanceof Error ? err.message : t("wordle.invalidGuess"));
     } finally {
       setLoading(false);
     }
@@ -107,8 +109,8 @@ export function Wordle() {
 
   return (
     <div className="flex flex-col items-center px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">🟩 Wordle</h1>
-      <p className="text-white/60 mb-6 text-sm">Guess the 5-letter word in {MAX_ATTEMPTS} tries</p>
+      <h1 className="text-3xl font-bold mb-2">{t("wordle.title")}</h1>
+      <p className="text-white/60 mb-6 text-sm">{t("wordle.subtitle", { length: WORD_LENGTH, attempts: MAX_ATTEMPTS })}</p>
 
       <div className="flex flex-col gap-2 mb-6">
         {rows.map((row, ri) => {
@@ -183,18 +185,18 @@ export function Wordle() {
           onClick={startGame}
           className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
         >
-          New word
+          {t("wordle.newWord")}
         </button>
         <Link to="/" className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors">
-          ← Back
+          {t("common.back")}
         </Link>
       </div>
 
       {gameOver && (
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-sm">
-          <h2 className="text-xl font-bold mb-2">{solved ? "🎉 Solved!" : "😔 Out of guesses"}</h2>
-          {revealedWord && <p className="text-white/70 mb-1">The word was "{revealedWord.toUpperCase()}"</p>}
-          {bestScore !== null && <p className="text-violet-300">Your best on this game: {bestScore}</p>}
+          <h2 className="text-xl font-bold mb-2">{solved ? t("wordle.solved") : t("wordle.outOfGuesses")}</h2>
+          {revealedWord && <p className="text-white/70 mb-1">{t("wordle.wordWas", { word: revealedWord.toUpperCase() })}</p>}
+          {bestScore !== null && <p className="text-violet-300">{t("common.yourBestOnThisGame", { score: bestScore })}</p>}
         </div>
       )}
     </div>

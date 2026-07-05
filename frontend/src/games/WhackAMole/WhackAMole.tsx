@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
 const HOLE_COUNT = 9;
 const ROUND_SECONDS = 30;
 
 export function WhackAMole() {
+  const { t } = useLanguage();
   const [activeHole, setActiveHole] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(ROUND_SECONDS);
@@ -101,10 +103,8 @@ export function WhackAMole() {
 
   return (
     <div className="flex flex-col items-center px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">🔨 Whack-a-Mole</h1>
-      <p className="text-white/60 mb-6 text-sm">
-        Score: {score} · Time left: {timeLeft}s
-      </p>
+      <h1 className="text-3xl font-bold mb-2">{t("whackAMole.title")}</h1>
+      <p className="text-white/60 mb-6 text-sm">{t("whackAMole.status", { score, time: timeLeft })}</p>
 
       <div className="grid grid-cols-3 gap-4 mb-8">
         {Array.from({ length: HOLE_COUNT }).map((_, i) => (
@@ -124,7 +124,7 @@ export function WhackAMole() {
           onClick={start}
           className="rounded-md bg-violet-600 px-6 py-2 font-medium hover:bg-violet-500 transition-colors mb-4"
         >
-          Start
+          {t("common.start")}
         </button>
       )}
 
@@ -134,19 +134,19 @@ export function WhackAMole() {
             onClick={restart}
             className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
           >
-            Restart
+            {t("common.restart")}
           </button>
         )}
         <Link to="/" className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors">
-          ← Back
+          {t("common.back")}
         </Link>
       </div>
 
       {gameOver && (
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-sm">
-          <h2 className="text-xl font-bold mb-2">⏰ Time's up!</h2>
-          <p className="text-white/70 mb-1">Final score: {score}</p>
-          {bestScore !== null && <p className="text-violet-300">Your best on this game: {bestScore}</p>}
+          <h2 className="text-xl font-bold mb-2">{t("whackAMole.timesUp")}</h2>
+          <p className="text-white/70 mb-1">{t("common.finalScore", { score })}</p>
+          {bestScore !== null && <p className="text-violet-300">{t("common.yourBestOnThisGame", { score: bestScore })}</p>}
         </div>
       )}
     </div>

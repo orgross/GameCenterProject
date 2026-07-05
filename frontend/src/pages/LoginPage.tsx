@@ -1,9 +1,11 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, friendlyAuthError } from "../context/AuthContext";
+import { useLanguage } from "../context/LanguageContext";
 
 export function LoginPage() {
   const { login } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,9 +32,9 @@ export function LoginPage() {
         onSubmit={handleSubmit}
         className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur"
       >
-        <h1 className="text-2xl font-bold mb-6 text-center">Log in</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">{t("auth.loginTitle")}</h1>
 
-        <label className="block text-sm mb-1 text-white/70">Username</label>
+        <label className="block text-sm mb-1 text-white/70">{t("auth.username")}</label>
         <input
           className="w-full mb-4 rounded-md bg-black/30 border border-white/10 px-3 py-2 outline-none focus:border-violet-400"
           value={username}
@@ -41,7 +43,7 @@ export function LoginPage() {
           required
         />
 
-        <label className="block text-sm mb-1 text-white/70">Password</label>
+        <label className="block text-sm mb-1 text-white/70">{t("auth.password")}</label>
         <input
           type="password"
           className="w-full mb-6 rounded-md bg-black/30 border border-white/10 px-3 py-2 outline-none focus:border-violet-400"
@@ -57,13 +59,13 @@ export function LoginPage() {
           disabled={busy}
           className="w-full rounded-md bg-violet-600 py-2 font-medium hover:bg-violet-500 transition-colors disabled:opacity-50"
         >
-          {busy ? "Logging in..." : "Log in"}
+          {busy ? t("auth.loggingIn") : t("auth.login")}
         </button>
 
         <p className="mt-4 text-sm text-center text-white/60">
-          No account?{" "}
+          {t("auth.noAccount")}{" "}
           <Link to="/register" className="text-violet-300 hover:underline">
-            Register
+            {t("auth.register")}
           </Link>
         </p>
       </form>

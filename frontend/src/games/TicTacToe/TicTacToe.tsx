@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { requestComputerMove, type Cell, type Difficulty } from "../../api/tictactoe";
 import { findWinningLine, isBoardFull } from "../shared/boardWinCheck";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
 type Mode = "computer" | "friend";
 type Stage = "settings" | "playing";
@@ -17,14 +18,8 @@ function scoreFor(outcome: Outcome, humanMoves: number): number {
   return 0;
 }
 
-function outcomeMessage(outcome: Outcome, mode: Mode): string {
-  if (outcome === "draw") return "🤝 It's a draw!";
-  if (outcome === "x_win") return mode === "computer" ? "🎉 You win!" : "❌ Player 1 (X) wins!";
-  if (outcome === "o_win") return mode === "computer" ? "💻 Computer wins!" : "⭕ Player 2 (O) wins!";
-  return "";
-}
-
 export function TicTacToe() {
+  const { t } = useLanguage();
   const [stage, setStage] = useState<Stage>("settings");
   const [mode, setMode] = useState<Mode>("computer");
   const [difficulty, setDifficulty] = useState<Difficulty>("hard");
@@ -36,6 +31,13 @@ export function TicTacToe() {
   const [winningLine, setWinningLine] = useState<number[] | null>(null);
   const [thinking, setThinking] = useState(false);
   const [bestScore, setBestScore] = useState<number | null>(null);
+
+  const outcomeMessage = (o: Outcome): string => {
+    if (o === "draw") return t("tictactoe.draw");
+    if (o === "x_win") return mode === "computer" ? t("tictactoe.youWin") : t("tictactoe.player1Wins");
+    if (o === "o_win") return mode === "computer" ? t("tictactoe.computerWins") : t("tictactoe.player2Wins");
+    return "";
+  };
 
   const startGame = () => {
     setBoard(EMPTY_BOARD);
@@ -117,28 +119,28 @@ export function TicTacToe() {
     return (
       <div className="flex justify-center items-center px-4 py-20">
         <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-8">
-          <h1 className="text-2xl font-bold mb-6 text-center">❌⭕ Tic-Tac-Toe</h1>
+          <h1 className="text-2xl font-bold mb-6 text-center">{t("tictactoe.title")}</h1>
 
-          <label className="block text-sm mb-1 text-white/70">Mode</label>
+          <label className="block text-sm mb-1 text-white/70">{t("tictactoe.mode")}</label>
           <select
             className="w-full mb-4 rounded-md bg-black/30 border border-white/10 px-3 py-2"
             value={mode}
             onChange={(e) => setMode(e.target.value as Mode)}
           >
-            <option value="computer">vs Computer</option>
-            <option value="friend">vs Friend (same computer)</option>
+            <option value="computer">{t("tictactoe.vsComputer")}</option>
+            <option value="friend">{t("tictactoe.vsFriend")}</option>
           </select>
 
           {mode === "computer" && (
             <>
-              <label className="block text-sm mb-1 text-white/70">Computer difficulty</label>
+              <label className="block text-sm mb-1 text-white/70">{t("tictactoe.computerDifficulty")}</label>
               <select
                 className="w-full mb-6 rounded-md bg-black/30 border border-white/10 px-3 py-2"
                 value={difficulty}
                 onChange={(e) => setDifficulty(e.target.value as Difficulty)}
               >
-                <option value="easy">Easy</option>
-                <option value="hard">Hard (unbeatable)</option>
+                <option value="easy">{t("tictactoe.easy")}</option>
+                <option value="hard">{t("tictactoe.hard")}</option>
               </select>
             </>
           )}
@@ -147,10 +149,10 @@ export function TicTacToe() {
             onClick={startGame}
             className="w-full rounded-md bg-violet-600 py-2 font-medium hover:bg-violet-500 transition-colors"
           >
-            Start
+            {t("common.start")}
           </button>
           <Link to="/" className="block text-center text-sm text-white/50 mt-4 hover:text-white/80">
-            ← Back to games
+            {t("common.backToGames")}
           </Link>
         </div>
       </div>
@@ -159,15 +161,15 @@ export function TicTacToe() {
 
   return (
     <div className="flex flex-col items-center px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">❌⭕ Tic-Tac-Toe</h1>
+      <h1 className="text-3xl font-bold mb-2">{t("tictactoe.title")}</h1>
       <p className="text-white/70 mb-6">
         {outcome !== "in_progress"
-          ? outcomeMessage(outcome, mode)
+          ? outcomeMessage(outcome)
           : thinking
-          ? "Computer is thinking..."
+          ? t("tictactoe.computerThinking")
           : mode === "friend"
-          ? `${currentTurn === "X" ? "Player 1 (X)" : "Player 2 (O)"}'s turn`
-          : "Your turn (X)"}
+          ? t("tictactoe.playersTurn", { player: currentTurn === "X" ? t("tictactoe.player1X") : t("tictactoe.player2O") })
+          : t("tictactoe.yourTurn")}
       </p>
 
       <div className="grid grid-cols-3 gap-2 mb-8">
@@ -195,29 +197,29 @@ export function TicTacToe() {
           onClick={startGame}
           className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
         >
-          New Game
+          {t("common.newGame")}
         </button>
         <button
           onClick={() => setStage("settings")}
           className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors"
         >
-          Change settings
+          {t("common.changeSettings")}
         </button>
         <Link to="/" className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors">
-          ← Back
+          {t("common.back")}
         </Link>
       </div>
 
       {outcome !== "in_progress" && (
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-sm">
-          <h2 className="text-xl font-bold mb-2">{outcomeMessage(outcome, mode)}</h2>
+          <h2 className="text-xl font-bold mb-2">{outcomeMessage(outcome)}</h2>
           {mode === "computer" && (
             <>
-              <p className="text-white/70 mb-1">Score this round: {scoreFor(outcome, humanMoves)}</p>
-              {bestScore !== null && <p className="text-violet-300">Your best on this game: {bestScore}</p>}
+              <p className="text-white/70 mb-1">{t("tictactoe.scoreThisRound", { score: scoreFor(outcome, humanMoves) })}</p>
+              {bestScore !== null && <p className="text-violet-300">{t("common.yourBestOnThisGame", { score: bestScore })}</p>}
             </>
           )}
-          {mode === "friend" && <p className="text-white/70">Local match — not saved to the leaderboard.</p>}
+          {mode === "friend" && <p className="text-white/70">{t("common.localMatchNotSaved")}</p>}
         </div>
       )}
     </div>

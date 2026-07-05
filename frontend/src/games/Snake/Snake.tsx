@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
 const GRID_SIZE = 20;
 const INITIAL_SPEED_MS = 160;
@@ -37,6 +38,7 @@ function randomEmptyCell(snake: Point[]): Point {
 }
 
 export function Snake() {
+  const { t } = useLanguage();
   const [snake, setSnake] = useState<Point[]>([{ x: 10, y: 10 }]);
   const [food, setFood] = useState<Point>({ x: 5, y: 5 });
   const [direction, setDirection] = useState<Direction>("right");
@@ -114,8 +116,8 @@ export function Snake() {
 
   return (
     <div className="flex flex-col items-center px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">🐍 Snake</h1>
-      <p className="text-white/60 mb-6 text-sm">Arrow keys / WASD to move · Score: {score}</p>
+      <h1 className="text-3xl font-bold mb-2">{t("snake.title")}</h1>
+      <p className="text-white/60 mb-6 text-sm">{t("snake.instructions", { score })}</p>
 
       <div
         className="grid border border-white/10 bg-black/30"
@@ -149,7 +151,7 @@ export function Snake() {
       </div>
 
       {!started && !gameOver && (
-        <p className="mt-6 text-white/60 text-sm">Press an arrow key to start</p>
+        <p className="mt-6 text-white/60 text-sm">{t("snake.pressToStart")}</p>
       )}
 
       <div className="flex gap-3 mt-6">
@@ -157,18 +159,18 @@ export function Snake() {
           onClick={restart}
           className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
         >
-          Restart
+          {t("common.restart")}
         </button>
         <Link to="/" className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors">
-          ← Back
+          {t("common.back")}
         </Link>
       </div>
 
       {gameOver && (
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-sm">
-          <h2 className="text-xl font-bold mb-2">💀 Game over!</h2>
-          <p className="text-white/70 mb-1">Final score: {score}</p>
-          {bestScore !== null && <p className="text-violet-300">Your best on this game: {bestScore}</p>}
+          <h2 className="text-xl font-bold mb-2">{t("snake.gameOver")}</h2>
+          <p className="text-white/70 mb-1">{t("common.finalScore", { score })}</p>
+          {bestScore !== null && <p className="text-violet-300">{t("common.yourBestOnThisGame", { score: bestScore })}</p>}
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
 const SIZE = 4;
 type Grid = number[][];
@@ -125,6 +126,7 @@ function initialGrid(): Grid {
 }
 
 export function Game2048() {
+  const { t } = useLanguage();
   const [grid, setGrid] = useState<Grid>(() => initialGrid());
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -168,8 +170,8 @@ export function Game2048() {
 
   return (
     <div className="flex flex-col items-center px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">🔢 2048</h1>
-      <p className="text-white/60 mb-6 text-sm">Arrow keys / WASD to slide · Score: {score}</p>
+      <h1 className="text-3xl font-bold mb-2">{t("game2048.title")}</h1>
+      <p className="text-white/60 mb-6 text-sm">{t("game2048.instructions", { score })}</p>
 
       <div className="grid grid-cols-4 gap-2 p-2 rounded-xl bg-black/30 border border-white/10">
         {grid.flat().map((value, i) => (
@@ -189,18 +191,18 @@ export function Game2048() {
           onClick={restart}
           className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
         >
-          Restart
+          {t("common.restart")}
         </button>
         <Link to="/" className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors">
-          ← Back
+          {t("common.back")}
         </Link>
       </div>
 
       {gameOver && (
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-sm">
-          <h2 className="text-xl font-bold mb-2">🧱 No more moves!</h2>
-          <p className="text-white/70 mb-1">Final score: {score}</p>
-          {bestScore !== null && <p className="text-violet-300">Your best on this game: {bestScore}</p>}
+          <h2 className="text-xl font-bold mb-2">{t("game2048.noMoreMoves")}</h2>
+          <p className="text-white/70 mb-1">{t("common.finalScore", { score })}</p>
+          {bestScore !== null && <p className="text-violet-300">{t("common.yourBestOnThisGame", { score: bestScore })}</p>}
         </div>
       )}
     </div>

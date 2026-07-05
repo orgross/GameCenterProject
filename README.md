@@ -47,3 +47,32 @@ npm run dev
 ```
 
 Open `http://localhost:5173`, register an account, and start playing.
+
+## Deploying (e.g. Netlify)
+
+The frontend (`frontend/`) is a static build and deploys fine to Netlify/Vercel/etc. The backend (`backend/`) is a long-running Python process — static hosts **cannot** run it, so it needs a separate host (Fly.io, Railway, Render, or a small VPS all work).
+
+1. Deploy the backend somewhere with HTTPS, note its public URL.
+2. In Netlify's dashboard: **Site configuration → Environment variables**, set `VITE_API_BASE_URL` to that backend URL, then trigger a redeploy (env vars only take effect on the next build).
+3. Add the deployed frontend's exact origin (e.g. `https://your-site.netlify.app`) to `allow_origins` in `backend/app/main.py` and redeploy the backend — otherwise the browser blocks every API call with a CORS error.
+4. `frontend/public/_redirects` (already included) tells Netlify to serve `index.html` for every path — without it, directly opening or refreshing any route other than `/` (e.g. `/login`, or a phone opening a saved link) 404s, since those routes only exist via client-side React Router, not as real files.
+
+## Installing as an app (PWA)
+
+The frontend is a full Progressive Web App (manifest + service worker, via `vite-plugin-pwa`) — no app-store account needed:
+
+```bash
+cd frontend
+npm run build
+npm run preview -- --port 4173
+```
+
+Open the preview URL on a phone on the same Wi-Fi network (use your computer's LAN IP instead of `localhost`) and choose "Add to Home Screen" (iOS Safari) or use the install prompt (Android Chrome). It launches full-screen with its own icon, no browser chrome.
+
+**Two things to change before this works off your own machine:**
+1. `frontend/src/api/client.ts` hardcodes `API_BASE = "http://localhost:8000"` — a phone can't reach your machine's `localhost`. Point it at your LAN IP (`http://192.168.x.x:8000`) for local testing, or a real deployed backend URL for anything beyond your own network.
+2. The backend's CORS `allow_origins` in `backend/app/main.py` must include whatever origin the frontend is actually served from.
+
+For real distribution beyond your own Wi-Fi, the backend needs to be deployed somewhere public with HTTPS (both iOS and Android block plain HTTP from installed apps) — a small VPS or a free/cheap tier on Fly.io/Railway/Render all work.
+
+If you want actual App Store / Play Store listings instead of (or in addition to) the PWA, wrap this same frontend with [Capacitor](https://capacitorjs.com/) — it needs a paid Apple Developer account ($99/year) and a one-time $25 Google Play registration fee, which no tooling can avoid.

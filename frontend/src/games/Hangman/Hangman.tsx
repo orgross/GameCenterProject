@@ -1,38 +1,90 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { guessHangman, newHangmanGame, type Difficulty, type HangmanStatus } from "../../api/hangman";
+import {
+  fetchHangmanCategories,
+  guessHangman,
+  newHangmanGame,
+  RANDOM_CATEGORY,
+  type CategoryOut,
+  type HangmanStatus,
+} from "../../api/hangman";
 import { submitScore } from "../../api/scores";
+import { useLanguage } from "../../context/LanguageContext";
 
-const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("");
-
+const ALPHABET_EN = "abcdefghijklmnopqrstuvwxyz".split("");
+const ALPHABET_HE = "אבגדהוזחטיכלמנסעפצקרשת".split("");
 type Stage = "settings" | "playing";
+type SessionMode = "custom" | "infinite";
+
+function roundScore(status: HangmanStatus, wrongGuesses: number, maxWrong: number): number {
+  return status === "won" ? Math.max(0, (maxWrong - wrongGuesses) * 15 + 50) : 0;
+}
 
 export function Hangman() {
+  const { t, language, setLocked } = useLanguage();
+  const alphabet = language === "he" ? ALPHABET_HE : ALPHABET_EN;
   const [stage, setStage] = useState<Stage>("settings");
-  const [difficulty, setDifficulty] = useState<Difficulty>("easy");
+  const [categories, setCategories] = useState<CategoryOut[]>([]);
+  const [category, setCategory] = useState<string>(RANDOM_CATEGORY);
+  const [sessionMode, setSessionMode] = useState<SessionMode>("custom");
+  const [customCount, setCustomCount] = useState(5);
 
   const [gameId, setGameId] = useState<string | null>(null);
-  const [category, setCategory] = useState("");
+  const [wordCategoryKey, setWordCategoryKey] = useState("");
   const [pattern, setPattern] = useState<string[]>([]);
   const [wrongGuesses, setWrongGuesses] = useState(0);
   const [maxWrong, setMaxWrong] = useState(6);
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [status, setStatus] = useState<HangmanStatus>("in_progress");
   const [revealedWord, setRevealedWord] = useState<string | null>(null);
+
+  const [roundsCompleted, setRoundsCompleted] = useState(0);
+  const [sessionScore, setSessionScore] = useState(0);
+  const [sessionFinished, setSessionFinished] = useState(false);
   const [bestScore, setBestScore] = useState<number | null>(null);
 
-  const startGame = async () => {
-    const game = await newHangmanGame(difficulty);
+  useEffect(() => {
+    fetchHangmanCategories().then(setCategories).catch(() => {});
+  }, []);
+
+  // Word content and the on-screen keyboard are language-dependent — lock the
+  // global language toggle for the duration of a session so switching mid-word
+  // can't desync the keyboard from the word being guessed.
+  useEffect(() => {
+    setLocked(stage === "playing");
+    return () => setLocked(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stage]);
+
+  const startRound = async () => {
+    const game = await newHangmanGame(category, language);
     setGameId(game.game_id);
-    setCategory(game.category);
+    setWordCategoryKey(game.category_key);
     setMaxWrong(game.max_wrong);
     setPattern(Array(game.word_length).fill("_"));
     setWrongGuesses(0);
     setGuessedLetters([]);
     setStatus("in_progress");
     setRevealedWord(null);
+  };
+
+  const startSession = async () => {
+    setRoundsCompleted(0);
+    setSessionScore(0);
+    setSessionFinished(false);
     setBestScore(null);
     setStage("playing");
+    await startRound();
+  };
+
+  const finishSession = async (finalScore: number) => {
+    setSessionFinished(true);
+    try {
+      const result = await submitScore("hangman", finalScore);
+      setBestScore(result.best_score);
+    } catch {
+      // Not fatal if the score can't be saved.
+    }
   };
 
   const handleGuess = async (letter: string) => {
@@ -46,16 +98,21 @@ export function Hangman() {
 
     if (response.status !== "in_progress") {
       setRevealedWord(response.word);
-      const score = response.status === "won" ? Math.max(0, (maxWrong - response.wrong_guesses) * 15 + 50) : 0;
-      const result = await submitScore("hangman", score);
-      setBestScore(result.best_score);
+      const nextRoundsCompleted = roundsCompleted + 1;
+      const nextSessionScore = sessionScore + roundScore(response.status, response.wrong_guesses, maxWrong);
+      setRoundsCompleted(nextRoundsCompleted);
+      setSessionScore(nextSessionScore);
+
+      if (sessionMode === "custom" && nextRoundsCompleted >= customCount) {
+        await finishSession(nextSessionScore);
+      }
     }
   };
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (stage !== "playing" || status !== "in_progress") return;
-      if (/^[a-zA-Z]$/.test(e.key)) handleGuess(e.key.toLowerCase());
+      if (/^[a-zA-Zא-ת]$/.test(e.key)) handleGuess(e.key.toLowerCase());
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
@@ -66,27 +123,55 @@ export function Hangman() {
     return (
       <div className="flex justify-center items-center px-4 py-20">
         <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-8">
-          <h1 className="text-2xl font-bold mb-6 text-center">🎩 Hangman</h1>
+          <h1 className="text-2xl font-bold mb-6 text-center">{t("hangman.title")}</h1>
 
-          <label className="block text-sm mb-1 text-white/70">Difficulty (word length)</label>
+          <label className="block text-sm mb-1 text-white/70">{t("hangman.category")}</label>
           <select
-            className="w-full mb-6 rounded-md bg-black/30 border border-white/10 px-3 py-2"
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value as Difficulty)}
+            className="w-full mb-4 rounded-md bg-black/30 border border-white/10 px-3 py-2"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="easy">Easy (4-5 letters)</option>
-            <option value="medium">Medium (6-7 letters)</option>
-            <option value="hard">Hard (8+ letters)</option>
+            <option value={RANDOM_CATEGORY}>{t("hangman.random")}</option>
+            {categories.map((c) => (
+              <option key={c.key} value={c.key}>
+                {t(`hangman.categories.${c.key}`)}
+              </option>
+            ))}
           </select>
 
+          <label className="block text-sm mb-1 text-white/70">{t("hangman.play")}</label>
+          <select
+            className="w-full mb-4 rounded-md bg-black/30 border border-white/10 px-3 py-2"
+            value={sessionMode}
+            onChange={(e) => setSessionMode(e.target.value as SessionMode)}
+          >
+            <option value="custom">{t("hangman.customCount")}</option>
+            <option value="infinite">{t("hangman.infinite")}</option>
+          </select>
+
+          {sessionMode === "custom" && (
+            <>
+              <label className="block text-sm mb-1 text-white/70">{t("hangman.numberOfWords")}</label>
+              <input
+                type="number"
+                min={1}
+                max={50}
+                className="w-full mb-6 rounded-md bg-black/30 border border-white/10 px-3 py-2"
+                value={customCount}
+                onChange={(e) => setCustomCount(Math.max(1, Number(e.target.value) || 1))}
+              />
+            </>
+          )}
+          {sessionMode === "infinite" && <div className="mb-6" />}
+
           <button
-            onClick={startGame}
+            onClick={startSession}
             className="w-full rounded-md bg-violet-600 py-2 font-medium hover:bg-violet-500 transition-colors"
           >
-            Start
+            {t("common.start")}
           </button>
           <Link to="/" className="block text-center text-sm text-white/50 mt-4 hover:text-white/80">
-            ← Back to games
+            {t("common.backToGames")}
           </Link>
         </div>
       </div>
@@ -94,11 +179,22 @@ export function Hangman() {
   }
 
   const remainingLives = maxWrong - wrongGuesses;
+  const roundOver = status !== "in_progress";
+  const canFinishNow = sessionMode === "infinite" && !sessionFinished;
+  const canContinue =
+    roundOver && !sessionFinished && (sessionMode === "infinite" || roundsCompleted < customCount);
 
   return (
     <div className="flex flex-col items-center px-4 py-12">
-      <h1 className="text-3xl font-bold mb-1">🎩 Hangman</h1>
-      <p className="text-white/50 text-xs uppercase tracking-wide mb-6">Category: {category}</p>
+      <h1 className="text-3xl font-bold mb-1">{t("hangman.title")}</h1>
+      <p className="text-white/50 text-xs uppercase tracking-wide mb-1">
+        {t("hangman.categoryLabel", { category: t(`hangman.categories.${wordCategoryKey}`) })}
+      </p>
+      <p className="text-white/50 text-xs mb-6">
+        {sessionMode === "custom"
+          ? t("hangman.wordProgress", { current: Math.min(roundsCompleted + 1, customCount), total: customCount })
+          : t("hangman.wordProgressInfinite", { current: roundsCompleted + 1, score: sessionScore })}
+      </p>
 
       <p className="text-2xl mb-6">
         {"❤️".repeat(Math.max(0, remainingLives))}
@@ -117,16 +213,16 @@ export function Hangman() {
       </div>
 
       <div className="grid grid-cols-9 sm:grid-cols-13 gap-1.5 mb-8 max-w-lg">
-        {ALPHABET.map((letter) => {
-          const guessed = guessedLetters.includes(letter);
-          const correct = guessed && pattern.includes(letter);
+        {alphabet.map((letter) => {
+          const guessedAlready = guessedLetters.includes(letter);
+          const correct = guessedAlready && pattern.includes(letter);
           return (
             <button
               key={letter}
               onClick={() => handleGuess(letter)}
-              disabled={guessed || status !== "in_progress"}
+              disabled={guessedAlready || status !== "in_progress"}
               className={`w-9 h-9 rounded-md text-sm font-bold uppercase transition-colors ${
-                guessed
+                guessedAlready
                   ? correct
                     ? "bg-emerald-600 text-white"
                     : "bg-white/5 text-white/30"
@@ -139,23 +235,46 @@ export function Hangman() {
         })}
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-wrap justify-center">
+        {canContinue && (
+          <button
+            onClick={startRound}
+            className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
+          >
+            {t("hangman.nextWord")}
+          </button>
+        )}
+        {canFinishNow && (
+          <button
+            onClick={() => finishSession(sessionScore)}
+            className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors"
+          >
+            {t("hangman.finishRun")}
+          </button>
+        )}
         <button
           onClick={() => setStage("settings")}
-          className="rounded-md bg-violet-600 px-4 py-2 font-medium hover:bg-violet-500 transition-colors"
+          className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors"
         >
-          New game
+          {t("common.newGame")}
         </button>
         <Link to="/" className="rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20 transition-colors">
-          ← Back
+          {t("common.back")}
         </Link>
       </div>
 
-      {status !== "in_progress" && (
+      {roundOver && (
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-center max-w-sm">
-          <h2 className="text-xl font-bold mb-2">{status === "won" ? "🎉 You won!" : "💀 You lost"}</h2>
-          {revealedWord && <p className="text-white/70 mb-1">The word was "{revealedWord.toUpperCase()}"</p>}
-          {bestScore !== null && <p className="text-violet-300">Your best on this game: {bestScore}</p>}
+          <h2 className="text-xl font-bold mb-2">{status === "won" ? t("hangman.youWon") : t("hangman.youLost")}</h2>
+          {revealedWord && <p className="text-white/70 mb-1">{t("hangman.wordWas", { word: revealedWord.toUpperCase() })}</p>}
+          {sessionFinished && (
+            <>
+              <p className="text-white/70 mb-1">
+                {t("hangman.runComplete", { count: roundsCompleted, score: sessionScore })}
+              </p>
+              {bestScore !== null && <p className="text-violet-300">{t("common.yourBestOnThisGame", { score: bestScore })}</p>}
+            </>
+          )}
         </div>
       )}
     </div>
